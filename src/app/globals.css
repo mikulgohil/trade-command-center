@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #071021;
+  --color-panel: rgba(8, 16, 35, 0.88);
+  --color-panel-border: rgba(255, 255, 255, 0.1);
+  --color-text-primary: rgba(255, 255, 255, 0.95);
+  --color-text-secondary: rgba(255, 255, 255, 0.55);
+
+  --color-accent-cyan: #33D6FF;
+  --color-accent-teal: #19E6C1;
+  --color-accent-amber: #FFB020;
+  --color-accent-red: #FF4D6D;
+  --color-accent-green: #3DFF88;
+
+  --color-card: rgba(255, 255, 255, 0.04);
+  --color-divider: rgba(255, 255, 255, 0.08);
+}
+
+:root {
+  --glass-blur: 24px;
+  --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --glass-radius: 20px;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glass panel base style — dark opaque panel */
+@layer components {
+  .glass-panel {
+    background: var(--color-panel);
+    border: 1px solid var(--color-panel-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--glass-radius);
+  }
+}
+
+/* Scrollbar styling for ticker */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile drawer slide-up animation */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
